@@ -27,30 +27,20 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Placeholder for Future Animations (e.g., Fade-Ins on Scroll)
-window.addEventListener('scroll', () => {
-    const fadeIns = document.querySelectorAll('.fade-in');
-    fadeIns.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            element.classList.add('visible');
-        }
-    });
-});
-
-// Detect scroll and add 'visible' class for fade-in sections
+// Fade-In Animation on Scroll
 function revealOnScroll() {
-    const sections = document.querySelectorAll('.fade-in');
+    const fadeIns = document.querySelectorAll('.fade-in');
     const windowHeight = window.innerHeight;
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
+
+    fadeIns.forEach(element => {
+        const sectionTop = element.getBoundingClientRect().top;
         if (sectionTop < windowHeight - 50) {
-            section.classList.add('visible');
+            element.classList.add('visible');
         }
     });
 }
 
-// Attach scroll event listener
+// Attach scroll event listener for fade-in animation
 window.addEventListener('scroll', revealOnScroll);
 
 // Initial call to ensure fade-in effects on load
