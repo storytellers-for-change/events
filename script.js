@@ -37,3 +37,21 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Detect scroll and add 'visible' class for fade-in sections
+function revealOnScroll() {
+    const sections = document.querySelectorAll('.fade-in');
+    const windowHeight = window.innerHeight;
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < windowHeight - 50) {
+            section.classList.add('visible');
+        }
+    });
+}
+
+// Attach scroll event listener
+window.addEventListener('scroll', revealOnScroll);
+
+// Initial call to ensure fade-in effects on load
+revealOnScroll();
