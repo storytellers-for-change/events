@@ -117,28 +117,27 @@ h1, h2 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    pointer-events: none;
+    height: 200%; /* Extending across hero and mission section */
     z-index: 1;
+    pointer-events: none;
 }
 
 .triangle-left,
 .triangle-right {
     position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
+    width: 50vw;
+    height: 100%;
 }
 
 .triangle-left {
-    border-width: 0 0 100vh 10vw;
-    border-color: transparent transparent #4a8c82 transparent;
+    background-color: #4a8c82;
+    clip-path: polygon(0 0, 90% 0, 0 100%);
     left: 0;
 }
 
 .triangle-right {
-    border-width: 100vh 10vw 0 0;
-    border-color: #4a8c82 transparent transparent transparent;
+    background-color: #4a8c82;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%);
     right: 0;
 }
 
@@ -237,40 +236,4 @@ footer nav a:hover {
     }
 
     .menu-icon span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: #333;
-        margin: 5px 0;
-    }
-
-    /* Adjust triangle width for smaller screens */
-    .triangle-left {
-        border-width: 0 0 100vh 20vw;
-    }
-
-    .triangle-right {
-        border-width: 100vh 20vw 0 0;
-    }
-}
-
-/* Animations */
-.hero-title, .hero-text, .btn {
-    animation: fadeInUp 1.5s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Scroll Behavior */
-html {
-    scroll-behavior: smooth;
-}
+        display:
