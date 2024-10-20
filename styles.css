@@ -1,4 +1,10 @@
 /* Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -103,7 +109,6 @@ section {
     background-color: #4a8c82; /* Mid-tone blue-green */
     color: #fff;
     padding: 100px 30px;
-    margin-top: 0; /* Remove extra margin */
 }
 
 .mission h2 {
