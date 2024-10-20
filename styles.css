@@ -4,88 +4,80 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html, body {
+    height: 100%;
+}
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
-    scroll-behavior: smooth;
+    overflow: hidden;
 }
-
 h1, h2 {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #1a1a1a;
 }
-
 /* Navbar */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 70px; /* Fixed height */
     background: rgba(255, 255, 255, 0.9);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 0 30px; /* Adjusted padding */
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .logo a {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 24px;
     text-decoration: none;
     color: #1a1a1a;
 }
-
 .nav-links {
     display: flex;
     gap: 20px;
 }
-
 .nav-links a {
     text-decoration: none;
     color: #333;
     font-size: 16px;
     text-transform: uppercase;
 }
-
 .menu-icon {
     display: none; /* For mobile, style it for hamburger later */
 }
-
 .navbar a:hover {
     color: #0066cc;
 }
-
-/* Fullscreen Section Styling */
+/* Main Content */
+main {
+    margin-top: 70px; /* Equal to navbar height */
+    height: calc(100% - 70px);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+/* Sections */
 section {
-    height: 100vh;
+    min-height: 100%;
+    scroll-snap-align: start;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
-    opacity: 0; /* Start invisible */
-    transform: translateY(100px); /* Start below viewport */
-    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth scroll-in effect */
 }
-
-section.scroll-in {
-    opacity: 1;
-    transform: translateY(0); /* Scroll-in from bottom */
-}
-
 /* Hero Section */
 .hero {
     background: url('assets/hero-background.jpg') no-repeat center center/cover;
     position: relative;
-    color: white;
-    text-align: center;
+    width: 100%;
 }
-
 .hero::before {
     content: '';
     position: absolute;
@@ -96,26 +88,23 @@ section.scroll-in {
     background-color: rgba(0, 0, 0, 0.5); /* Overlay effect */
     z-index: 1;
 }
-
 .hero-content {
     z-index: 2;
+    text-align: center;
+    color: white;
 }
-
 .hero-title {
     font-size: 4rem;
     letter-spacing: 3px;
 }
-
 .hero-text {
     font-size: 1.5rem;
     margin-top: 20px;
     font-weight: 300;
 }
-
 .hero-buttons {
     margin-top: 30px;
 }
-
 .btn {
     background: #0066cc;
     color: white;
@@ -127,62 +116,42 @@ section.scroll-in {
     margin: 0 10px;
     transition: 0.3s ease;
 }
-
 .btn:hover {
     background: #004c99;
     transform: scale(1.05);
 }
-
 /* Mission Section */
-.mission {
-    background: white;
-    text-align: center;
-}
-
 .mission h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
-
 .mission p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
     color: #666;
-}
-
-/* Researchers Section */
-.researchers {
-    background: #f9f9f9;
     text-align: center;
 }
-
+/* Researchers Section */
 .researchers h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
-
 .researchers p {
     font-size: 1rem;
     color: #555;
-}
-
-/* Events Section */
-.events {
-    background: white;
     text-align: center;
 }
-
+/* Events Section */
 .events h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
-
 .events p {
     font-size: 1rem;
     color: #555;
+    text-align: center;
 }
-
 /* Footer */
 footer {
     background-color: #333;
@@ -190,45 +159,51 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
-
 footer p {
     font-size: 0.9rem;
 }
-
 footer nav a {
     color: white;
     text-decoration: none;
     margin: 0 10px;
 }
-
 footer nav a:hover {
     color: #0066cc;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
     }
-
     .hero-text {
         font-size: 1.2rem;
     }
-
     .nav-links {
         display: none; /* Hide on mobile */
     }
-
     .menu-icon {
         display: block;
         cursor: pointer;
     }
-
     .menu-icon span {
         display: block;
         width: 25px;
         height: 3px;
         background: #333;
         margin: 5px 0;
+    }
+}
+/* Animations */
+.hero-title, .hero-text, .btn {
+    animation: fadeInUp 1.5s ease;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
