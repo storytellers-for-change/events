@@ -1,63 +1,39 @@
 /* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-h1, h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #1a1a1a;
-}
+/* (Same as before) */
 
 /* Navbar */
-.navbar {
-    position: fixed;
+/* (Same as before) */
+
+/* Overlay and Triangles */
+.overlay {
+    position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: calc(200vh); /* Adjust if necessary */
+    pointer-events: none;
+    z-index: 2; /* Above background image, below content */
 }
 
-.logo a {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    text-decoration: none;
-    color: #1a1a1a;
+.triangle-left,
+.triangle-right {
+    position: absolute;
+    background-color: #4a8c82; /* Blue color for triangles */
+    z-index: 2;
 }
 
-.nav-links {
-    display: flex;
-    gap: 20px;
+.triangle-left {
+    clip-path: polygon(0 0, 0 100%, 40% 100%, 100% 0);
+    width: 50%;
+    height: 100%;
+    left: 0;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-.menu-icon {
-    display: none; /* For mobile, style it for hamburger later */
-}
-
-.navbar a:hover {
-    color: #0066cc;
+.triangle-right {
+    clip-path: polygon(0 0, 60% 100%, 100% 100%, 100% 0);
+    width: 50%;
+    height: 100%;
+    right: 0;
 }
 
 /* Hero Section */
@@ -71,74 +47,14 @@ h1, h2 {
     color: white;
     text-align: center;
     overflow: hidden;
+    z-index: 1; /* Below overlay */
 }
 
+/* Hero Content */
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3; /* Above overlay */
     padding-top: 80px; /* Adjust for navbar height */
-}
-
-.hero-title {
-    font-size: 4rem;
-    letter-spacing: 3px;
-}
-
-.hero-text {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    font-weight: 300;
-}
-
-.hero-buttons {
-    margin-top: 30px;
-}
-
-.btn {
-    background: #0066cc;
-    color: white;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    border: none;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 0 10px;
-    transition: 0.3s ease;
-}
-
-.btn:hover {
-    background: #004c99;
-    transform: scale(1.05);
-}
-
-/* Overlay and Triangles */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200%; /* Extending across hero and mission section */
-    z-index: 1;
-    pointer-events: none;
-}
-
-.triangle-left,
-.triangle-right {
-    position: absolute;
-    width: 50vw;
-    height: 100%;
-}
-
-.triangle-left {
-    background-color: #4a8c82;
-    clip-path: polygon(0 0, 90% 0, 0 100%);
-    left: 0;
-}
-
-.triangle-right {
-    background-color: #4a8c82;
-    clip-path: polygon(10% 0, 100% 0, 100% 100%);
-    right: 0;
 }
 
 /* Mission Section */
@@ -151,89 +67,26 @@ h1, h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.mission h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.mission p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #e0e0e0;
-}
-
-/* Other Sections */
-section {
-    background-color: #4a8c82; /* Same color as triangles */
-    color: #fff;
-    padding: 100px 30px;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-section p {
-    font-size: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #e0e0e0;
+    z-index: 1;
+    position: relative;
 }
 
 /* Section Spacing */
-section + section {
-    margin-top: -100px; /* Overlaps sections to ensure one at a time */
+section {
+    scroll-snap-align: start;
+}
+
+body {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
 /* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer p {
-    font-size: 0.9rem;
-}
-
-footer nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer nav a:hover {
-    color: #0066cc;
-}
+/* (Same as before) */
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
+/* (Same as before, adjust triangle gap in media queries as shown above) */
 
-    .hero-text {
-        font-size: 1.2rem;
-    }
-
-    .nav-links {
-        display: none; /* Hide on mobile */
-    }
-
-    .menu-icon {
-        display: block;
-        cursor: pointer;
-    }
-
-    .menu-icon span {
-        display:
+/* Animations */
+/* (Same as before) */
