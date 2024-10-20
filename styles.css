@@ -60,7 +60,7 @@ h1, h2 {
     color: #0066cc;
 }
 
-/* Overlay and Triangles */
+/* Overlay and Single Triangle */
 .overlay {
     position: absolute;
     top: 0;
@@ -71,25 +71,13 @@ h1, h2 {
     z-index: 2; /* Above background image, below content */
 }
 
-.triangle-left,
-.triangle-right {
+.triangle-overlay {
     position: absolute;
-    background-color: #4a8c82; /* Blue color for triangles */
+    background-color: #4a8c82; /* Blue color for triangle */
     z-index: 2;
-}
-
-.triangle-left {
-    clip-path: polygon(0 0, 0 100%, 40% 100%, 100% 0);
-    width: 50%;
-    height: 100%;
-    left: 0;
-}
-
-.triangle-right {
-    clip-path: polygon(0 0, 60% 100%, 100% 100%, 100% 0);
-    width: 50%;
-    height: 100%;
-    right: 0;
+    clip-path: polygon(100% 0%, 90% 0%, 100% 90%); /* Adjust triangle points */
+    width: 100%;
+    height: calc(100vh + 100%); /* Adjust height for mission section */
 }
 
 /* Hero Section */
@@ -146,7 +134,7 @@ h1, h2 {
 
 /* Mission Section */
 .mission {
-    background-color: #4a8c82; /* Same color as triangles */
+    background-color: #4a8c82; /* Same color as triangle */
     color: #fff;
     padding: 100px 30px;
     text-align: center;
@@ -217,15 +205,6 @@ footer nav a:hover {
         height: 3px;
         background: #333;
         margin: 5px 0;
-    }
-
-    /* Adjust triangle gap for smaller screens */
-    .triangle-left {
-        clip-path: polygon(0 0, 0 100%, 35% 100%, 100% 0); /* Increase gap */
-    }
-
-    .triangle-right {
-        clip-path: polygon(0 0, 65% 100%, 100% 100%, 100% 0); /* Increase gap */
     }
 }
 
