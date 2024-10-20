@@ -170,35 +170,6 @@ h1, h2 {
     color: #e0e0e0;
 }
 
-/* Other Sections */
-section {
-    background-color: #4a8c82; /* Same color as triangles */
-    color: #fff;
-    padding: 100px 30px;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-section p {
-    font-size: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #e0e0e0;
-}
-
-/* Section Spacing */
-section + section {
-    margin-top: -100px; /* Overlaps sections to ensure one at a time */
-}
-
 /* Footer */
 footer {
     background-color: #333;
