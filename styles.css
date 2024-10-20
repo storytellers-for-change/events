@@ -68,6 +68,14 @@ section {
     justify-content: center;
     align-items: center;
     padding: 50px;
+    opacity: 0; /* Start invisible */
+    transform: translateY(100px); /* Start below viewport */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth scroll-in effect */
+}
+
+section.scroll-in {
+    opacity: 1;
+    transform: translateY(0); /* Scroll-in from bottom */
 }
 
 /* Hero Section */
