@@ -27,15 +27,21 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Fade-In Animation for Sections
+// Adjust Section Visibility on Scroll
 window.addEventListener('scroll', () => {
-    const fadeIns = document.querySelectorAll('section');
-    fadeIns.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100 && rect.bottom >= 0) {
-            section.classList.add('visible');
+    const sections = document.querySelectorAll('section');
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    sections.forEach((section) => {
+        if (
+            section.offsetTop <= scrollPosition + window.innerHeight / 2 &&
+            section.offsetTop + section.offsetHeight > scrollPosition + window.innerHeight / 2
+        ) {
+            // Section is in viewport
+            section.style.opacity = '1';
         } else {
-            section.classList.remove('visible');
+            // Section is out of viewport
+            section.style.opacity = '0';
         }
     });
 });
