@@ -53,15 +53,12 @@ h1, h2 {
 }
 
 .menu-icon {
-    display: none; /* For mobile, style it for hamburger later */
+    display: none;
 }
 
-.navbar a:hover {
-    color: #0066cc;
-}
-
-/* Hero Section */
+/* Hero Section with Overlay */
 .hero {
+    position: relative;
     height: 100vh;
     background: url('assets/hero-background.jpg') no-repeat center center/cover;
     display: flex;
@@ -69,18 +66,7 @@ h1, h2 {
     align-items: center;
     color: white;
     text-align: center;
-    position: relative;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay effect */
-    z-index: 1;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -119,121 +105,69 @@ h1, h2 {
     transform: scale(1.05);
 }
 
+/* Triangular Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.triangle-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 100vh solid #4a8c82; /* Adjust color as needed */
+    border-right: 10% solid transparent;
+}
+
+.triangle-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 100vh solid #4a8c82; /* Adjust color as needed */
+    border-left: 10% solid transparent;
+}
+
 /* Mission Section */
-.mission {
-    padding: 50px 30px;
-    background: white;
+.mission, .researchers, .events {
+    padding: 100px 30px;
+    background: #4a8c82;
+    color: #fff;
     text-align: center;
 }
 
-.mission h2 {
+.mission h2, .researchers h2, .events h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-.mission p {
+.mission p, .researchers p, .events p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #666;
+    color: #e0e0e0;
 }
 
-/* Researchers Section */
-.researchers {
-    padding: 50px 30px;
-    background: #f9f9f9;
-    text-align: center;
+/* Spacing and Scrolling Visibility */
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.researchers h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.researchers p {
-    font-size: 1rem;
-    color: #555;
-}
-
-/* Events Section */
-.events {
-    padding: 50px 30px;
-    background: white;
-    text-align: center;
-}
-
-.events h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.events p {
-    font-size: 1rem;
-    color: #555;
+section + section {
+    padding-top: 100vh; /* Ensures one section at a time */
 }
 
 /* Footer */
 footer {
     background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer p {
-    font-size: 0.9rem;
-}
-
-footer nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer nav a:hover {
-    color: #0066cc;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-text {
-        font-size: 1.2rem;
-    }
-
-    .nav-links {
-        display: none; /* Hide on mobile */
-    }
-
-    .menu-icon {
-        display: block;
-        cursor: pointer;
-    }
-
-    .menu-icon span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: #333;
-        margin: 5px 0;
-    }
-}
-
-/* Animations */
-.hero-title, .hero-text, .btn {
-    animation: fadeInUp 1.5s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    color: 
