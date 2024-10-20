@@ -27,13 +27,15 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Placeholder for Future Animations (e.g., Fade-Ins on Scroll)
+// Fade-In Animation for Sections
 window.addEventListener('scroll', () => {
-    const fadeIns = document.querySelectorAll('.fade-in');
-    fadeIns.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            element.classList.add('visible');
+    const fadeIns = document.querySelectorAll('section');
+    fadeIns.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100 && rect.bottom >= 0) {
+            section.classList.add('visible');
+        } else {
+            section.classList.remove('visible');
         }
     });
 });
