@@ -27,19 +27,19 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Smooth Scroll between Sections
+// Section Scroll-in Animation
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    const viewportHeight = window.innerHeight;
 
-    sections.forEach((section, index) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+    sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            section.style.opacity = 1;
+        // Check if the section is about to enter the viewport (bottom starts to appear)
+        if (sectionTop <= viewportHeight && sectionTop > 0) {
+            section.classList.add('scroll-in');
         } else {
-            section.style.opacity = 0;
+            section.classList.remove('scroll-in');
         }
     });
 });
