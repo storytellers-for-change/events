@@ -1,239 +1,217 @@
-/* General Styles */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body and Font Styling */
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #f5f5f5;
 }
 
-h1, h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #1a1a1a;
-}
-
-/* Navbar */
+/* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.logo a {
+.navbar .logo a {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #fff;
     text-decoration: none;
-    color: #1a1a1a;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
 }
 
 .nav-links a {
+    color: #fff;
     text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    text-transform: uppercase;
+    margin: 0 1rem;
 }
 
 .menu-icon {
-    display: none; /* For mobile, style it for hamburger later */
+    display: none;
+    cursor: pointer;
 }
 
-.navbar a:hover {
-    color: #0066cc;
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
 }
 
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('https://github.com/storytellers-for-change/events/blob/main/assets/hero-background.jpg') no-repeat center center/cover;
+    background: url('hero-image.jpg') no-repeat center center/cover;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: center;
     text-align: center;
-    position: relative;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay effect */
-    z-index: 1;
-}
-
-.hero-content {
-    z-index: 2;
+    color: #fff;
+    padding: 0 2rem;
 }
 
 .hero-title {
-    font-size: 4rem;
-    letter-spacing: 3px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 .hero-text {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-.hero-buttons {
-    margin-top: 30px;
-}
-
-.btn {
-    background: #0066cc;
-    color: white;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    border: none;
+.hero-buttons .btn {
+    background-color: #ff4b2b;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    margin: 0 1rem;
     text-decoration: none;
-    font-size: 1rem;
-    margin: 0 10px;
-    transition: 0.3s ease;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background: #004c99;
-    transform: scale(1.05);
+.hero-buttons .btn:hover {
+    background-color: #ff6f4b;
 }
 
 /* Mission Section */
 .mission {
-    padding: 50px 30px;
-    background: white;
+    padding: 4rem 2rem;
     text-align: center;
+    background-color: #fff;
 }
 
 .mission h2 {
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    color: #333;
+    margin-bottom: 1rem;
 }
 
 .mission p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: 1rem;
     color: #666;
 }
 
-/* Researchers Section */
-.researchers {
-    padding: 50px 30px;
-    background: #f9f9f9;
+/* Researchers and Events Sections */
+.researchers, .events {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+}
+
+.researchers h2, .events h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
     text-align: center;
+    margin-bottom: 1rem;
 }
 
-.researchers h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.researchers p {
+.researchers p, .events p {
     font-size: 1rem;
-    color: #555;
-}
-
-/* Events Section */
-.events {
-    padding: 50px 30px;
-    background: white;
+    color: #666;
     text-align: center;
-}
-
-.events h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.events p {
-    font-size: 1rem;
-    color: #555;
+    margin-bottom: 2rem;
 }
 
 /* Footer */
 footer {
     background-color: #333;
-    color: white;
-    padding: 20px 0;
+    color: #fff;
     text-align: center;
-}
-
-footer p {
-    font-size: 0.9rem;
+    padding: 1.5rem;
 }
 
 footer nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 1rem;
 }
 
 footer nav a:hover {
-    color: #0066cc;
+    text-decoration: underline;
 }
 
-/* Responsive Design */
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
     }
 
     .hero-text {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .nav-links {
-        display: none; /* Hide on mobile */
+        display: none;
     }
 
     .menu-icon {
         display: block;
+    }
+
+    .navbar .menu-icon, .navbar .nav-links {
         cursor: pointer;
     }
+}
 
-    .menu-icon span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: #333;
-        margin: 5px 0;
+/* Mobile Navigation Overlay */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        position: fixed;
+        background-color: #333;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+    }
+
+    .navbar .nav-links a {
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .navbar .nav-links.show {
+        transform: translateX(0);
     }
 }
 
-/* Animations */
-.hero-title, .hero-text, .btn {
-    animation: fadeInUp 1.5s ease;
+/* Button Styling for Scrolling */
+a.btn {
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+a.btn:hover {
+    transform: scale(1.05);
 }
