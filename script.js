@@ -26,22 +26,3 @@ navLinks.querySelectorAll('a').forEach(link => {
         menuIcon.classList.remove('active');
     });
 });
-
-// Adjust Section Visibility on Scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-    sections.forEach((section) => {
-        if (
-            section.offsetTop <= scrollPosition + window.innerHeight / 2 &&
-            section.offsetTop + section.offsetHeight > scrollPosition + window.innerHeight / 2
-        ) {
-            // Section is in viewport
-            section.style.opacity = '1';
-        } else {
-            // Section is out of viewport
-            section.style.opacity = '0';
-        }
-    });
-});
