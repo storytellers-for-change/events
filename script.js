@@ -27,21 +27,13 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Fade-In Animation on Scroll
-function revealOnScroll() {
+// Placeholder for Future Animations (e.g., Fade-Ins on Scroll)
+window.addEventListener('scroll', () => {
     const fadeIns = document.querySelectorAll('.fade-in');
-    const windowHeight = window.innerHeight;
-
     fadeIns.forEach(element => {
-        const sectionTop = element.getBoundingClientRect().top;
-        if (sectionTop < windowHeight - 50) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
             element.classList.add('visible');
         }
     });
-}
-
-// Attach scroll event listener for fade-in animation
-window.addEventListener('scroll', revealOnScroll);
-
-// Initial call to ensure fade-in effects on load
-revealOnScroll();
+});
