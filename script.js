@@ -27,13 +27,19 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Placeholder for Future Animations (e.g., Fade-Ins on Scroll)
+// Smooth Scroll between Sections
 window.addEventListener('scroll', () => {
-    const fadeIns = document.querySelectorAll('.fade-in');
-    fadeIns.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            element.classList.add('visible');
+    const sections = document.querySelectorAll('section');
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            section.style.opacity = 1;
+        } else {
+            section.style.opacity = 0;
         }
     });
 });
